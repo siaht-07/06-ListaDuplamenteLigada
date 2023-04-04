@@ -169,17 +169,25 @@ void excluirPrimeiroElemento()
 	NO* aux = primeiro;
 	NO* excluir = aux;
 
-	if (aux == primeiro)
+	if (primeiro == NULL) {
+		cout << "Lista vazia \n";
+		return;
+	}
+
+	else if (primeiro->prox == NULL)
+	{
+		primeiro = NULL;
+		ultimo = NULL;
+		cout << "Primeiro elemento excluido \n";
+		free(aux);
+	}
+
+	else
 	{
 		primeiro = primeiro->prox;
 		primeiro->ant = NULL;
+		cout << "Primeiro numero excluido \n";
 		free(aux);
-
-		cout << "Primeiro elemento excluido \n";
-	}
-	else {
-		free(aux);
-		cout << "tds elementos excluidos \n";
 	}
 }
 
@@ -188,18 +196,23 @@ void excluirUltimoElemento()
 	NO* aux = ultimo;
 	NO* excluir = aux;
 
-	if (aux == ultimo)
+	if (ultimo == NULL)
 	{
+		cout << "Lista vazia \n";
+		return;
+	}
+	else if (ultimo = primeiro)
+	{
+		ultimo = NULL;
+		primeiro = NULL;
+		cout << "Ultimo numero excluido \n";
+		free(aux);
+	}
+
+	else {
 		ultimo = ultimo->ant;
 		ultimo->prox = NULL;
+		cout << "O ultimo numero foi excluido da lista \n";
 		free(aux);
-
-		cout << "Ultimo elemento excluido \n";
 	}
-	else {
-		aux = NULL;
-		cout << "tds elementos excluidos \n";
-	}
-
 }
-
